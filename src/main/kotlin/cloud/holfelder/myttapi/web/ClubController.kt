@@ -1,9 +1,9 @@
 package cloud.holfelder.myttapi.web
 
 import cloud.holfelder.myttapi.model.GameSchedule
-import cloud.holfelder.myttapi.model.Team
 import cloud.holfelder.myttapi.service.GameScheduleService
 import cloud.holfelder.myttapi.service.TeamService
+import okhttp3.Response
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -19,7 +19,7 @@ class ClubController(val gameScheduleService: GameScheduleService, val teamServi
     }
 
     @GetMapping("{clubId}/teams")
-    fun getTeamsByClubId(@PathVariable clubId: String, @RequestParam("organization") organization: String = "ByTTV"): List<Team> {
+    fun getTeamsByClubId(@PathVariable clubId: String, @RequestParam("organization") organization: String = "ByTTV"): Any {
         return teamService.getTeamsByClubId(clubId, organization)
     }
 }
