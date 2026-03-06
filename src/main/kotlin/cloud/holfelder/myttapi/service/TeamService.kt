@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service
 @Service
 class TeamService(val teamClient: TeamClient) {
     fun getTeamsByClubId(clubId: String, organization: String): List<Team> {
-        return teamClient.getTeams(clubId, organization).data.map { it.toModel() }
+        val result = teamClient.getTeams(clubId, organization)
+        if (result.data == null)
+            return emptyList()
+
+        return result.data.map { it.toModel() }
     }
 }

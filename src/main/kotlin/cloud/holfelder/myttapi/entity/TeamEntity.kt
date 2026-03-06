@@ -1,8 +1,9 @@
 package cloud.holfelder.myttapi.entity
 
 import cloud.holfelder.myttapi.model.Team
+import org.springframework.boot.jackson.autoconfigure.JacksonProperties
 
-data class TeamResultEntity(val data: List<TeamEntity>, val error: String?)
+data class TeamResultEntity(val data: List<TeamEntity>?, val error: JacksonProperties.Json?)
 
 data class TeamEntity(
     val season: String,
