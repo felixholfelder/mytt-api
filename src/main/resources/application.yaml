@@ -1,0 +1,6 @@
+spring:
+  application:
+  name: mytt-api
+
+cache:
+  evict-cache: ${SCHEDULER_EVICT_CACHE} #every day at 4 o'clock
